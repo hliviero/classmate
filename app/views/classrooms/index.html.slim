@@ -1,0 +1,22 @@
+div class="container"
+  = link_to "Criar nova Matrícula", new_classroom_path, class: "btn btn-lg btn-primary"
+  p
+  div class="row"
+    div class="rol-md-6"
+      table class="table"
+        thead
+          tr
+            th name
+            th curso
+            th data de matrícula
+        tbody
+        - @classroom.each do |s|
+          tr
+            td = s.student.name
+            td = s.course.name
+            td = I18n.l(s.entry_at, format: :short)
+            td = link_to "Editar", edit_classroom_path(s)
+            td = link_to "Excluir", s, method: :delete
+
+  div class='button'
+    = link_to "Voltar", root_path
