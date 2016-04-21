@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-
+  responders :flash
   def new
     @student = Student.new
   end
@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to students_path
+      respond_with @student, location: -> { students_path }
     else
       render :new
     end
@@ -21,7 +21,7 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     if @student.update(student_params)
-      redirect_to students_path
+      respond_with @student, location: -> { students_path }
     else
       render :edit
     end

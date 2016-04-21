@@ -24,7 +24,9 @@ class ClassroomsController < ApplicationController
   end
 
   def edit
-    @classroom = Classroom.find(classroom_params)
+    @students = Student.all
+    @courses = Course.all
+    @classroom = Classroom.find(params[:id])
   end
 
   def update
