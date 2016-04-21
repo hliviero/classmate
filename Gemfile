@@ -18,9 +18,6 @@ group :development, :test do
   gem 'byebug'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
-end
-
-group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
 end
