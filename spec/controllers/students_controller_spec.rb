@@ -24,11 +24,4 @@ RSpec.describe StudentsController, type: :controller do
     end
   end
 
-  describe "POST #create" do
-    it "create new student" do
-      params = { student: { name: "João"} }
-      expect { post :create, params }.to change{Student.count}.from(0).to(1)
-    end
-  end
-
 end
